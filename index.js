@@ -22,7 +22,7 @@ app.use(express.json({extended:true}))
 //3.ROUTES
 app.use('/api/users',userRoutes)
 app.use('/api/auth', authRoutes)
-// app.use('/api/items', itemsRoutes)
+app.use('/api/items', itemsRoutes)
 
 
 //.4 SERVER

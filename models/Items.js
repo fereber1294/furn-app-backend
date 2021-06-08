@@ -5,6 +5,10 @@ const ItemsSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  picture:{
+    type:String,
+    required:true
+  },
   description:{
     type: String,
     required: true
@@ -24,6 +28,10 @@ const ItemsSchema = mongoose.Schema({
   dimensions:{
     type:String,
     required: true
+  },
+  creator:{
+  type:mongoose.Schema.Types.ObjectId,
+  ref:'User'
   }
 },
 {
