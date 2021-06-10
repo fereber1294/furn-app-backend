@@ -30,11 +30,9 @@ const ItemsSchema = mongoose.Schema({
   },
   location:{
     type:String,
-    required: true
   },
   dimensions:{
     type:String,
-    required: true
   },
   creator:{
   type:mongoose.Schema.Types.ObjectId,
