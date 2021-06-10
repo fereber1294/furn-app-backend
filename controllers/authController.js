@@ -33,6 +33,7 @@ exports.loginUser = async(req,res) => {
   //extract the pwd and compare if it matches front with DB
 
   let correctPWD = await bcryptjs.compare(password, userFromDB.password)
+  console.log(correctPWD)
 
   //if password doesn't match
   if(!correctPWD){

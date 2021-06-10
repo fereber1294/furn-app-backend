@@ -5,7 +5,7 @@ const ItemsSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  picture:{
+  imageUrl:{
     type:String,
     required:true
   },
@@ -16,6 +16,13 @@ const ItemsSchema = mongoose.Schema({
   price:{
     type: Number,
     required: true
+  },
+  offered:{
+    type:Boolean,
+    default:false
+  },
+  newPrice:{
+    type:Number
   },
   quantity:{
     type:Number,
