@@ -26,6 +26,6 @@ app.use('/api/items', itemsRoutes)
 
 
 //.4 SERVER
-app.listen(4006, () => {
-  console.log('server is up on port 4006');
+app.listen(process.env.PORT, () => {
+  console.log('server is up on port');
 })
