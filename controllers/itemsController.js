@@ -1,25 +1,37 @@
 const Items = require('./../models/Items')
 const {validationResult} = require('express-validator')
 
+const cloudinary = require('cloudinary')
+
+require('dotenv').config({path: '.env'})
+
+
+
 exports.createItem = async (req,res) => {
+
+
   const errors = validationResult(req)
   if(!errors.isEmpty()){
     return res.json({
       errors: errors.array()
     })
   }
+  
 
+  
   //CREATION OF THE ITEM ON DB
   try{
-    const item = new Items(req.body)
-
-    item.creator = req.user.id //gets the user id
+    const itemCreated = new Items(req.body)
+    const img_id = itemCreated.imageUrl.public_id
+    
+    
+    itemCreated.creator = req.user.id //gets the user id
 
     //SAVE THE PROJECT
-    item.save()
+    itemCreated.save()
     res.json({
       msg:'Item added to DB',
-      itemCreated: item
+      itemCreated: itemCreated
     })
   }catch(e){
     res.status(400).json({

@@ -11,6 +11,8 @@ const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/users')
 const itemsRoutes = require('./routes/items')
 
+const cloudinary = require('cloudinary')
+
 require('dotenv').config({path: '.env'})
 
 
@@ -18,6 +20,12 @@ require('dotenv').config({path: '.env'})
 connectDB() //conection to DB
 app.use(cors()) //lets data connect between 2 envs
 app.use(express.json({extended:true})) 
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 //3.ROUTES
 app.use('/api/users',userRoutes)

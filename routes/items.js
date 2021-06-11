@@ -25,7 +25,7 @@ router.post('/',
   //READ AN ITEM
   router.get('/',
     auth,
-    itemsController.getItem
+    itemsController.getItems
   )
 
   //UPDATE AN ITEM
