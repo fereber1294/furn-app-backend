@@ -9,21 +9,17 @@ require('dotenv').config({path: '.env'})
 
 exports.createItem = async (req,res) => {
 
-
   const errors = validationResult(req)
   if(!errors.isEmpty()){
     return res.json({
       errors: errors.array()
     })
   }
-  
-
-  
+   
   //CREATION OF THE ITEM ON DB
   try{
     const itemCreated = new Items(req.body)
     const img_id = itemCreated.imageUrl.public_id
-    
     
     itemCreated.creator = req.user.id //gets the user id
 
