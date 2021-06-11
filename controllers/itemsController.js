@@ -28,10 +28,10 @@ exports.createItem = async (req,res) => {
   }
 }
 
-exports.getItem = async (req,res) => {
+exports.getItems = async (req,res) => {
   let user = req.user.id
   try{
-    const itemsList = await Items.find({creator:user}).sort({createdAt:-1})
+    const itemsList = await Items.find().sort({createdAt:-1})
     res.json({
       itemsList
     })
